@@ -1,0 +1,113 @@
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+}
+
+p {
+    font-weight: 400;
+}
+
+.text-light-custom {
+    font-weight: 300;
+}
+
+.promo-banner {
+    background-color: #185ADB;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.banner-item {
+    position: relative;
+    z-index: 2;
+}
+
+.banner-item-m {
+    position: relative;
+    z-index: 3;
+}
+
+.banner-image {
+    position: absolute;
+    max-width: 350px;
+    height: auto;
+    bottom: -95px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+}
+
+.banner-image-m {
+    position: absolute;
+    max-width: 300px;
+    height: auto;
+    bottom: -5px;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.rotated-text-left {
+    position: absolute;
+    left: -30px;
+    top: -20px;
+    font-size: 2rem;
+    font-weight: 900;
+    color: white;
+    transform: rotate(-15deg);
+    z-index: 1;
+    text-transform: uppercase;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+
+.rotated-text-left-m {
+    position: absolute;
+    top: 30px;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: white;
+    transform: rotate(-15deg);
+    z-index: 1;
+    text-transform: uppercase;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+
+
+.rotated-text-right {
+    position: absolute;
+    right: 6px;
+    bottom: -80px;
+    font-size: 2rem;
+    font-weight: 900;
+    color: white;
+    z-index: 4;
+    text-transform: uppercase;
+    white-space: nowrap;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+
+.rotated-text-right-m {
+    position: absolute;
+    right: 6px;
+    bottom: 10px;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: white;
+    z-index: 4;
+    text-transform: uppercase;
+    white-space: nowrap;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+
+.promo-banner .btn-light {
+    color: #185ADB;
+    font-weight: bold;
+}

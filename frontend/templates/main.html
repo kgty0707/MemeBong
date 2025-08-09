@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% from 'macros/_card_macros.html' import meam_card %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-3 col-md-3">...</div>
+        <div class="col-6 col-md-6">
+            <div class="row">이건 첫번째 레슨 좋은건 너만 알기👌</div>
+            <div class="row">
+                <form class="d-flex" role="search">
+                    <input
+                        class="form-control me-2"
+                        type="search"
+                        placeholder="Search"
+                        aria-label="Search"/>
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-3 col-md-3">...</div>
+    </div>
+    <div class="row">
+        <div class="tites">
+            <span>이달의 밈</span>
+            <!-- 서버에서 월 별 밈이 갱신되면 업데이트 -->
+            <span>오늘의 날짜-서버 응답</span>
+        </div>
+        <div class="row justify-content-center g-4">
+
+            {# 서버에서 전달받은 meam_list를 for 루프로 순회 #}
+            {% for meam in meam_list %}
+
+                {# 각 카드가 차지할 공간을 컬럼 클래스로 정의 #}
+                {# 큰 화면(lg)에서는 3칸(12/4=3), 중간(md)에서는 4칸(12/3=4), 작은(sm)에서는 6칸(12/2=6) #}
+                <div class="col-lg-3 col-md-4 col-sm-6">
+
+                    {# 매크로 호출 #}
+                    {{ meam_card(meam.image_url, meam.title, meam.tags) }}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="row">
+        {% include '_test_banner.html' %}
+    </div>
+</div>
+{% endblock %}

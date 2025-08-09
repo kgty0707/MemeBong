@@ -1,0 +1,19 @@
+{# 
+  카드 컴포넌트를 만드는 매크로
+  - image_url: 카드 이미지 주소
+  - title: 카드 제목
+  - tags: 해시태그 리스트
+#}
+{% macro meam_card(image_url, title, tags) %}
+<div class="card h-100 shadow-sm">
+    <img src="{{ image_url }}" class="card-img-top" alt="{{ title }}">
+    <div class="card-body">
+        <h5 class="card-title">{{ title }}</h5>
+        <p class="card-text">
+            {% for tag in tags %}
+                <span class="badge bg-light text-dark me-1">#{{ tag }}</span>
+            {% endfor %}
+        </p>
+    </div>
+</div>
+{% endmacro %}
