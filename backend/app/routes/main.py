@@ -22,6 +22,6 @@ def main(request: Request):
     ]
 
     return templates.TemplateResponse(
-        name="main.html",
+        name="index.html",
         context={"request": request, "meam_list": meam_data_from_db} 
     )

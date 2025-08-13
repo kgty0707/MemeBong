@@ -6,6 +6,18 @@ __pycache__/
 # C extensions
 *.so
 
+# Terraform
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+*.tfvars
+*.tfvars.json
+
 # Distribution / packaging
 .Python
 build/
@@ -205,3 +217,7 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Docker Compose Data Volumes
+postgres-data/
+minio-data/

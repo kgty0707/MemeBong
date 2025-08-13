@@ -1,0 +1,62 @@
+services:
+  # 1. PostgreSQL 데이터베이스 서버
+  db:
+    image: postgres:15-alpine
+    container_name: meam-bong-db
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+    env_file:
+      - ./.env
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+
+  # 2. MinIO 객체 스토리지 서버
+  minio:
+    image: minio/minio:latest
+    container_name: meam-bong-minio
+    volumes:
+      - ./minio-data:/data
+    ports:
+      - "9000:9000" # API 포트
+      - "9001:9001" # 웹 콘솔 포트
+    env_file:
+      - ./.env
+    command: server /data --console-address ":9001"
+    restart: unless-stopped
+
+  # 3. 백엔드 애플리케이션 (FastAPI 등)
+  backend:
+    container_name: meam-bong-backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    volumes:
+      - ./backend:/code/backend
+      - ./frontend:/code/frontend
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./.env
+    depends_on:
+      - db
+      - minio
+    restart: unless-stopped
+
+  # 4. 프론트엔드 애플리케이션 (Nginx 웹서버로 정적 파일 호스팅)
+  frontend:
+    container_name: meam-bong-frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+
+networks:
+  default:
+    driver: bridge
+
+volumes:
+  postgres-data:
+  minio-data:
