@@ -156,6 +156,12 @@ ENV/
 env.bak/
 venv.bak/
 
+# file
+.png
+.jpg
+.jpeg
+.gif
+
 # Spyder project settings
 .spyderproject
 .spyproject
@@ -221,3 +227,4 @@ __marimo__/
 # Docker Compose Data Volumes
 postgres-data/
 minio-data/
+
