@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container text-center py-5" style="max-width: 600px;">
+    
+    <h1 class="fw-bold mb-5">당신의 밈력 결과 ✨</h1>
+
+    <div class="card shadow-lg" style="border-radius: 1.5rem;">
+        <div class="card-body p-5">
+
+            <h2 class="fw-bold mb-3">
+                <span class="me-2">{{ tier_icon }}</span>{{ tier_name }} ({{ score }} / {{ total_questions }})
+            </h2>
+
+            <p class="lead text-muted px-4">
+                {{ tier_description }}
+            </p>
+
+            <div class="d-grid mt-5">
+                <button id="download-button" class="btn btn-primary btn-lg" type="button" style="border-radius: 0.75rem;">
+                    결과 카드 이미지 다운로드
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-grid mt-4">
+        <button id="share-button" class="btn btn-light btn-lg border" type="button" style="border-radius: 0.75rem;">
+            친구에게 공유하기 <i class="bi bi-link-45deg"></i>
+        </button>
+    </div>
+
+    <p class="form-text mt-4">
+        밈봉 MemeBong · 당신의 밈력 등급은 AI로 분석되었습니다
+    </p>
+
+</div>
+
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script src="/static/js/result.js"></script>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block content %}
+<script src="/static/js/main.js"></script>
+<div class="container mt-4">
+    <div class="container text-center py-5" id="start-screen">
+        
+        <h1 class="fw-bold">밈 테스트 <span class="sparkle">✨</span></h1>
+        <p class="lead text-muted mb-4">너는 얼마나 밈잘알일까? 15문제 밈 정답 테스트 시작!</p>
+        
+        <div class="card shadow-sm mx-auto" style="max-width: 500px;">
+            <div class="card-body p-5">
+                <div class="image-placeholder">
+                    <div>
+                        <h5 class="card-title">테스트 미리보기 이미지 영역</h5>
+                        <p class="card-text small">밈 예시 이미지가 보입니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-grid gap-2 col-6 mx-auto mt-4">
+            <button id="start-button" class="btn btn-primary btn-lg" type="button">
+                테스트 시작하기 <i class="bi bi-play-fill"></i>
+            </button>
+        </div>
+        <p class="form-text mt-2">테스트는 약 3분 소요됩니다. 끝까지 풀어보세요!</p>
+    </div>
+
+
+    <div class="container py-5" id="quiz-screen" style="display: none; max-width: 800px;">
+
+        <h2 class="fw-bold">밈 테스트 — 너는 얼마나 밈잘알?</h2>
+        <p class="text-muted">15문제 이미지 밈 테스트를 맞춰보세요. 등급 5단계</p>
+
+        <div class="d-flex align-items-center my-4">
+            <div class="progress flex-grow-1" role="progressbar" style="height: 10px;">
+                <div id="progress-bar" class="progress-bar" style="width: 0%;"></div>
+            </div>
+            <span id="question-counter" class="ms-3 text-muted fw-bold">0 / 15</span>
+        </div>
+
+        <div class="card shadow-sm">
+            <div class="card-body p-4">
+                <div class="row g-4 align-items-center">
+                    <div class="col-md-6">
+                        <div id="image-container" class="image-placeholder" style="min-height: 250px;">
+                            <span>밈 이미지 영역</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="meme-answer" class="form-label">밈 텍스트를 입력하세요.</label>
+                        <input type="text" class="form-control mb-3" id="meme-answer" placeholder="예: 무야호">
+                        <div class="d-grid gap-2 d-sm-flex">
+                            <button id="submit-button" class="btn btn-primary flex-grow-1" type="button">제출</button>
+                            <button id="next-button" class="btn btn-light border flex-grow-1" type="button">다음</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        </div>
+</div>
+{% endblock %}
