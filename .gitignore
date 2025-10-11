@@ -157,10 +157,10 @@ env.bak/
 venv.bak/
 
 # file
-.png
-.jpg
-.jpeg
-.gif
+*.png
+*.jpg
+*.jpeg
+*.gif
 
 # Spyder project settings
 .spyderproject

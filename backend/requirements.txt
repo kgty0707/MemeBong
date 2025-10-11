@@ -80,6 +80,7 @@ SQLAlchemy==2.0.42
 sqlparse==0.5.3
 starlette==0.47.2
 threadpoolctl==3.6.0
+typer==0.19.2
 typing-inspection==0.4.1
 typing_extensions==4.14.1
 tzdata==2025.2

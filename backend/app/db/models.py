@@ -33,15 +33,32 @@ class Meme(Base):
     __tablename__ = "memes"
 
     id = Column(Integer, primary_key=True, autoincrement=True)
-    title = Column(String(255), nullable=False)
+    title = Column(String(255), nullable=False, unique=True) # title은 고유해야 하므로 unique=True 추가
     image_url = Column(String(2048))
-    year = Column(Integer)
-    month = Column(Integer)
+    region = Column(String(50), nullable=True)
     created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=func.now())
     updated_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=func.now(), onupdate=func.now())
 
-    # Meme과 Tag의 관계 설정 (다대다)
+    # 관계 설정 1: 유행 시기 (One to Many)
+    # 하나의 밈은 여러 개의 유행 시기(MemePopularity)를 가질 수 있음
+    popularities = relationship("MemePopularity", back_populates="meme", cascade="all, delete-orphan")
+
+    # 관계 설정 2: 태그 (Many to Many)
+    # 하나의 밈은 여러 개의 태그를 가질 수 있음
     tags = relationship("Tag", secondary=meme_tags_table, back_populates="memes")
+
+
+class MemePopularity(Base):
+    __tablename__ = "meme_popularity"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    year = Column(Integer, nullable=False)
+    month = Column(Integer, nullable=True)  # '시기 불명'의 경우 NULL
+    
+    # 관계 설정: Meme 모델과의 다대일(Many-to-One) 관계
+    # 이 유행 시기 정보는 반드시 어떤 밈(Meme) 하나에 속해야 함
+    meme_id = Column(Integer, ForeignKey("memes.id", ondelete="CASCADE"), nullable=False)
+    meme = relationship("Meme", back_populates="popularities")
 
 
 class Tag(Base):
