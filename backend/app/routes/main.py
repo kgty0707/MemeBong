@@ -35,8 +35,8 @@ def main(request: Request, db: Session = Depends(dependencies.get_db)):
             "title": meme.title,
             # meme.tags relationship을 통해 Tag 객체 리스트를 가져오고, 각 tag의 name만 추출
             "tags": [tag.name for tag in meme.tags],
-            # 이미지가 없는 경우(None)를 대비하여 기본 이미지 경로 제공
-            "image_url": meme.image_url if meme.image_url else "/static/assets/images/default-image.png"
+            # 이미지가 없는 경우(None)를 대비하여 기본 이미지 경로 제공 
+            "image_url": meme.image_url if meme.image_url else "/static/assets/default_image.gif"
         }
         meam_list.append(meme_dict)
 
@@ -80,9 +80,6 @@ class UserAnswers(BaseModel):
 
 @router.post("/submit")
 async def submit_quiz(request: Request, user_answers: UserAnswers):
-    """
-    사용자 답안을 받아 채점하고, 결과를 세션에 저장합니다.
-    """
     score = 0
     for i, user_answer in enumerate(user_answers.answers):
         # 간단한 채점 로직: 정답에 사용자 답이 포함되면 정답 처리
@@ -110,14 +107,9 @@ async def submit_quiz(request: Request, user_answers: UserAnswers):
 
 @router.get("/result")
 async def show_result(request: Request):
-    """
-    세션에서 결과 데이터를 읽어 result.html 템플릿을 렌더링합니다.
-    """
     result_data = request.session.get('quiz_result')
 
-    # 만약 세션에 결과가 없으면 (예: URL로 바로 접속 시도) 퀴즈 시작 페이지로 리다이렉트
     if not result_data:
-        # 이 부분은 실제 퀴즈 시작 페이지의 URL로 변경해야 합니다.
         return templates.TemplateResponse("quiz.html", {"request": request})
 
     return templates.TemplateResponse("result.html", {"request": request, **result_data})

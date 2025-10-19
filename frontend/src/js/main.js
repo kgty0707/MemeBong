@@ -12,21 +12,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextButton = document.getElementById('next-button');
 
     const quizData = [
-        { image_url: '/static/images/meme_1.jpg', answer: '무야호' },
-        { image_url: '/static/images/meme_2.jpg', answer: '중요한 것은 꺾이지 않는 마음' },
-        { image_url: '/static/images/meme_3.jpg', answer: '너 T야?' },
-        { image_url: '/static/images/meme_4.jpg', answer: '삐끼삐끼' },
-        { image_url: '/static/images/meme_5.jpg', answer: '슬릭백' },
-        { image_url: '/static/images/meme_6.jpg', answer: '개웃겨서 도티낳음' },
-        { image_url: '/static/images/meme_7.jpg', answer: '그 잡채' },
-        { image_url: '/static/images/meme_8.jpg', answer: '사과해' },
-        { image_url: '/static/images/meme_9.jpg', answer: '군침이 싹 도노' },
-        { image_url: '/static/images/meme_10.jpg', answer: '어쩔티비' },
-        { image_url: '/static/images/meme_11.jpg', answer: '알잘딱깔센' },
-        { image_url: '/static/images/meme_12.jpg', answer: '오히려 좋아' },
-        { image_url: '/static/images/meme_13.jpg', answer: '가보자고' },
-        { image_url: '/static/images/meme_14.jpg', answer: '관짝춤' },
-        { image_url: '/static/images/meme_15.jpg', answer: '멋지다 연진아' },
+        { image_url: '/static/assets/images/meme_copy/meme-01.png', answer: '무야호' },
+        { image_url: '/static/assets/images/meme_copy/meme-18.png', answer: '중요한 것은 꺾이지 않는 마음' },
+        { image_url: '/static/assets/images/meme_copy/meme-03.png', answer: '너 T야?' },
+        { image_url: '/static/assets/images/meme_copy/meme-04.png', answer: '삐끼삐끼' },
+        { image_url: '/static/assets/images/meme_copy/meme-05.png', answer: '슬릭백' },
+        { image_url: '/static/assets/images/meme_copy/meme-06.png', answer: '개웃겨서 도티낳음' },
+        { image_url: '/static/assets/images/meme_copy/meme-07.png', answer: '그 잡채' },
+        { image_url: '/static/assets/images/meme_copy/meme-08.png', answer: '사과해' },
+        { image_url: '/static/assets/images/meme_copy/meme-09.png', answer: '군침이 싹 도노' },
+        { image_url: '/static/assets/images/meme_copy/meme-10.png', answer: '어쩔티비' },
+        { image_url: '/static/assets/images/meme_copy/meme-11.png', answer: '알잘딱깔센' },
+        { image_url: '/static/assets/images/meme_copy/meme-12.png', answer: '오히려 좋아' },
+        { image_url: '/static/assets/images/meme_copy/meme-13.png', answer: '가보자고' },
+        { image_url: '/static/assets/images/meme_copy/meme-14.png', answer: '관짝춤' },
+        { image_url: '/static/assets/images/meme_copy/meme-15.png', answer: '멋지다 연진아' },
     ];
 
     let currentQuestionIndex = 0;

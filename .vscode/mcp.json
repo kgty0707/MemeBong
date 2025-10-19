@@ -1,0 +1,24 @@
+{
+	"servers": {
+		"filesystem": {
+			"command": "npx",
+			"args": [
+				"-y",
+				"@modelcontextprotocol/server-filesystem@2025.8.21",
+				"${input:allowed_dirs}"
+			],
+			"type": "stdio"
+		},
+		"my-mcp-server-0b61ec24": {
+			"url": "https://mcp.notion.com/mcp",
+			"type": "http"
+		}
+	},
+	"inputs": [
+		{
+			"id": "allowed_dirs",
+			"type": "promptString",
+			"description": "Allowed directories for MCP Filesystem server"
+		}
+	]
+}
